@@ -10,5 +10,6 @@ interface HomeView {
 
     fun handleDataSuccess()
 
+    fun logout()
 
 }

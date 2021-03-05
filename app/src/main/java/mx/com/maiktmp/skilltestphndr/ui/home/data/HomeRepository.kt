@@ -1,5 +1,7 @@
 package mx.com.maiktmp.skilltestphndr.ui.home.data
 
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -19,7 +21,10 @@ class HomeRepository(private val partnerDao: PartnerDao) {
             )
     }
 
-    fun storePartner(vararg partners: PartnerDB, cbResult: (GenericResponse<Int?>) -> Unit): Disposable {
+    fun storePartner(
+        vararg partners: PartnerDB,
+        cbResult: (GenericResponse<Int?>) -> Unit
+    ): Disposable {
         return partnerDao.upsert(*partners)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -27,6 +32,10 @@ class HomeRepository(private val partnerDao: PartnerDao) {
                 { cbResult(GenericResponse(success = true)) },
                 { cbResult(GenericResponse(data = null)) }
             )
+    }
+
+    fun logoutFromFb() {
+        Firebase.auth.signOut()
     }
 
 }

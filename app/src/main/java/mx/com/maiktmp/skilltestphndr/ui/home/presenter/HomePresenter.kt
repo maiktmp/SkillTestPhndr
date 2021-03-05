@@ -137,4 +137,10 @@ class HomePresenter(
             tmpFile.delete()
         }
     }
+
+    fun logout() {
+        repostory.logoutFromFb()
+        view()?.logout()
+    }
+
 }

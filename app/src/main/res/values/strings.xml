@@ -37,4 +37,8 @@
     <string name="add_partner_title">Agregar colaborador</string>
     <string name="partners_title">Colaboradores</string>
     <string name="partner_places_title">Ubicación de los colaboradores</string>
+    <string name="log_out">Salir</string>
+    <string name="log_out_ad">¿Desea cerrar su sesión? </string>
+    <string name="ok">Aceptar </string>
+    <string name="cancel">Cancelar</string>
 </resources>

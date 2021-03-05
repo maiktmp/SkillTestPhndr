@@ -2,12 +2,15 @@ package mx.com.maiktmp.skilltestphndr.ui.home.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.kaopiz.kprogresshud.KProgressHUD
 import mx.com.maiktmp.database.DBSkillTestPhndr
@@ -15,6 +18,7 @@ import mx.com.maiktmp.skilltestphndr.R
 import mx.com.maiktmp.skilltestphndr.base.BackupBase
 import mx.com.maiktmp.skilltestphndr.databinding.ActivityHomeBinding
 import mx.com.maiktmp.skilltestphndr.ui.CustomActivity
+import mx.com.maiktmp.skilltestphndr.ui.auth.view.LoginActivity
 import mx.com.maiktmp.skilltestphndr.ui.home.data.HomeRepository
 import mx.com.maiktmp.skilltestphndr.ui.home.presenter.HomePresenter
 import mx.com.maiktmp.skilltestphndr.ui.home.view.interfaces.HomeView
@@ -53,7 +57,37 @@ class HomeActivity : CustomActivity(), HomeView {
         vBind.cvAddPartners
         homePresenter.attachView(this, lifecycle)
         homePresenter.attemptDownloadData()
+
+        super.setupToolbar(vBind.iToolbar.toolbar)
         super.setToolbarTitle(vBind.iToolbar, getString(R.string.home))
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_logout, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.log_out -> {
+                displayLogoutDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun displayLogoutDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.log_out))
+            .setMessage(getString(R.string.log_out_ad))
+            .setNegativeButton(getString(R.string.ok)) { _, _ ->
+                homePresenter.logout()
+            }
+            .setPositiveButton(getString(R.string.cancel)) { _, _ ->
+            }
+            .show()
     }
 
     private fun setupListPartners() {
@@ -98,6 +132,14 @@ class HomeActivity : CustomActivity(), HomeView {
 
         setupListPartners()
         setupAddPartner()
+    }
+
+    override fun logout() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+        finish()
     }
 
 

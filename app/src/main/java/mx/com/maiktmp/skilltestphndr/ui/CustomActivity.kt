@@ -15,14 +15,19 @@ abstract class CustomActivity : AppCompatActivity() {
     }
 
     fun setupBackButton(vToolbar: ToolbarBinding, title: String? = null) {
-        setSupportActionBar(vToolbar.toolbar)
+        setupToolbar(vToolbar.toolbar)
         val drawable = ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_24)
         val actionBar = this.supportActionBar
         actionBar?.setHomeAsUpIndicator(drawable)
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        actionBar?.setDisplayShowTitleEnabled(false)
         setToolbarTitle(vToolbar, title)
+    }
+
+    fun setupToolbar(toolbar: Toolbar) {
+        setSupportActionBar(toolbar)
+        val actionBar = this.supportActionBar
+        actionBar?.setDisplayShowTitleEnabled(false)
     }
 
     fun setToolbarTitle(vToolbar: ToolbarBinding, title: String? = null) {
