@@ -1,0 +1,73 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.4.21"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.5'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+
+    //Kotlin
+    vKtxCore = '1.3.2'
+
+    //Android UI
+    vAppCompat = '1.2.0'
+    vAppMaterial = '1.3.0'
+    vConstraintLayout = '2.0.4'
+
+    //Test
+    vJunit = '4.13.2'
+    vJunitExt = '1.1.2'
+    vEsspresoCore = '3.3.0'
+
+    //Material
+    vMaterial = '1.4.0-alpha01'
+
+    //Gson
+    vGson = "2.3.1"
+
+    //ProgressButton
+    vProgressButton = "2.1.0"
+
+    //FB
+    vFBBoom = "26.2.0"
+    vFBAuth = "19.0.0"
+
+    //Room Rx
+    vRoom = "2.2.6"
+    vRxJava = "2.2.6"
+    vRxJava2 = "2.2.9"
+    vRxAndroid = "2.1.1"
+    vRoomRx = "1.1.1"
+
+    //Retrofit
+    vLogInterceptor = '3.12.1'
+    vRetrofit = '2.6.0'
+
+    //ProgressDialog
+    vProgressDialog = '1.2.0'
+
+    //Play Services
+    vPlayServicesVersion = '17.0.0'
+}

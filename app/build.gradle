@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+}
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "mx.com.maiktmp.skilltestphndr"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    //Web
+    implementation project(":web")
+
+    //Database
+    implementation project(":database")
+
+    //Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$vKtxCore"
+
+    //Android UI
+    implementation "androidx.appcompat:appcompat:$vAppCompat"
+    implementation "com.google.android.material:material:$vAppMaterial"
+    implementation "androidx.constraintlayout:constraintlayout:$vConstraintLayout"
+
+    //Testing
+    testImplementation "junit:junit:$vJunit"
+    androidTestImplementation "androidx.test.ext:junit:$vJunitExt"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$vEsspresoCore"
+
+    //Material IO
+    implementation "com.google.android.material:material:$vMaterial"
+
+    //Progress Button
+    implementation "com.github.razir.progressbutton:progressbutton:$vProgressButton"
+
+    //FireBase
+    implementation platform("com.google.firebase:firebase-bom:$vFBBoom")
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation "com.google.android.gms:play-services-auth:$vFBAuth"
+
+    //ProgressDialog
+    implementation "com.kaopiz:kprogresshud:$vProgressDialog"
+
+    // Google maps for location picker
+    implementation "com.google.android.gms:play-services-location:$vPlayServicesVersion"
+    implementation "com.google.android.gms:play-services-maps:$vPlayServicesVersion"
+
+
+}

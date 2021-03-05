@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">SkillTestPhndr</string>
+    <string name="login_title">Login</string>
+    <string name="login">Entrar</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="loading">Espere</string>
+    <string name="login_helper">Puede entrar usando <b>test@test.com</b></string>
+    <string name="or">o</string>
+    <string name="retry">Reintentar</string>
+    <string name="partners_empty">Sin colaboradores registrados</string>
+    <string name="helper_password">Puede entrar usando <b>prueba</b></string>
+
+    <string name="validation_require">El campo es requerido</string>
+    <string name="validation_email">Ingrese una dirección de correo valida</string>
+
+    <string name="error_incomplete_login">No se pudo completar el inicio de sesión</string>
+    <string name="error_credentials">Usuario o contraseña incorrectos</string>
+    <string name="error_download_partners">Ocurrió un error al descargar los datos, intente más tarde</string>
+    <string name="error_decompress_partners">Ocurrió un error al procesar los datos, intente más tarde</string>
+    <string name="error_network">Ups! al parecer no tienes acceso a internet, verifica tu conexión</string>
+    <string name="error_local_storage">Ocurrió un error al obtener la información intenta más tarde</string>
+    <string name="error_get_local_partners">Ocurrió un error al obtener los colaboradores intenta más tarde</string>
+    <string name="error_save_local_partners">Ocurrió un error al guardar a los colaboradores intenta más tarde</string>
+
+
+    <string name="splash">SPLASH</string>
+    <string name="screen">SCREEN</string>
+    <string name="mis_partners">Mis colaboradores</string>
+    <string name="add_partners">Agregar un colaborador</string>
+    <string name="map_helper_text">*El marcador de color verde es el colaborador seleccionado</string>
+    <string name="map_random_location">*Localización generada aleatoriamente</string>
+    <string name="name">Nombre</string>
+    <string name="save">Guardar</string>
+    <string name="create_partner_success">Se guardaron los datos del colaborador exitosamente</string>
+    <string name="home">Inicio</string>
+    <string name="add_partner_title">Agregar colaborador</string>
+    <string name="partners_title">Colaboradores</string>
+    <string name="partner_places_title">Ubicación de los colaboradores</string>
+</resources>
